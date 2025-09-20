@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+<h2>Add New Product</h2>
+
+<form action="/products" method="POST">
+  <label>Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label>Address:</label><br>
+  <input type="text" name="address"><br><br>
+
+  <label>Phone:</label><br>
+  <input type="text" name="phone"><br><br>
+
+  <label>Supplier:</label><br>
+  <select name="supplierId" required>
+    <% suppliers.forEach(s => { %>
+      <option value="<%= s._id %>"><%= s.name %></option>
+    <% }) %>
+  </select><br><br>
+
+  <button type="submit">Save</button>
+</form>
+
+<a href="/products">Back</a>
+
+<%- include('../partials/footer') %>

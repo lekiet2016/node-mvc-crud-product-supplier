@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<h2>Suppliers</h2>
+<a href="/suppliers/new">Add Supplier</a>
+<ul>
+  <% suppliers.forEach(s => { %>
+    <li>
+      <%= s.name %> - <%= s.phone %>
+      <a href="/suppliers/<%= s._id %>/edit">Edit</a>
+      <form action="/suppliers/<%= s._id %>?_method=DELETE" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+<%- include('../partials/footer') %>
